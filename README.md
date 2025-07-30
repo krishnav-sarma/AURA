@@ -91,9 +91,9 @@ Licensed under: Friendship Unlimited License (FUL) v1.0
 
 ## 📡 Connect With Us
 
-📸 Instagram: @team.aura.official <br>
-🎙 Discord: Join Now <br>
-🌐 Website: Coming Soon <br>
+📸 Instagram: https://www.instagram.com/krishnav_sarma/ <br>
+🎙 Discord: Coming soon <br>
+🌐 Website: https://krishnav-sarma.github.io/AURA/ <br>
 
 ---
 
