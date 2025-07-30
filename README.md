@@ -93,7 +93,7 @@ Licensed under: Friendship Unlimited License (FUL) v1.0
 
 📸 Instagram: https://www.instagram.com/krishnav_sarma/ <br>
 🎙 Discord: Coming soon <br>
-🌐 Website: https://krishnav-sarma.github.io/AURA/ <br>
+🌐 Website: https://krishnav-sarma.github.io/AURA/  (DM krishnav_sarma for id/pass) <br>
 
 ---
 
