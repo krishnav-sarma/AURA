@@ -29,7 +29,7 @@ function mouse_position(event) {
   const email = document.getElementById("login-email");
   const password = document.getElementById("login-password");
 
-  if (email.value !== "imgay" || password.value !== "confirm ho") {
+  if (email.value !== "immember" || password.value !== "confirm ho") {
     email.style.outline = "red";
 
     if (distance < 100) {
