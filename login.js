@@ -1,12 +1,12 @@
 const button = document.querySelector(".pushable");
+const mobileButton = document.querySelector(".formobile");
 let currentX = 0;
 let currentY = 0;
 let targetX = 0;
 let targetY = 0;
 
-
 let isAnimating = false;
-document.addEventListener('mousemove', (event) => {
+document.addEventListener("mousemove", (event) => {
   if (!isAnimating) {
     isAnimating = true;
     requestAnimationFrame(() => {
@@ -21,7 +21,7 @@ function mouse_position(event) {
   const mouseY = event.clientY;
 
   const buttonOffset = getOffset(button);
-  const buttonX = buttonOffset.left + (button.offsetWidth / 2);
+  const buttonX = buttonOffset.left + button.offsetWidth / 2;
   const buttonY = buttonOffset.top;
 
   const distance = calculateDistance(mouseX, mouseY, buttonX, buttonY);
@@ -30,8 +30,6 @@ function mouse_position(event) {
   const password = document.getElementById("login-password");
 
   if (email.value !== "immember" || password.value !== "confirm ho") {
-    email.style.outline = "red";
-
     if (distance < 100) {
       const displacementFactor = (100 - distance) * 0.15;
       const perspectiveFactor = calculatePerspectiveFactor(buttonX, buttonY);
@@ -46,12 +44,13 @@ function mouse_position(event) {
     targetX = 0;
     targetY = 0;
     button.textContent = "ab thek";
+    email.style.outline = "";
+    password.style.outline = "";
   }
 }
 
-
 function smoothDisplacement() {
-  currentX += (targetX - currentX) * 0.04; 
+  currentX += (targetX - currentX) * 0.04;
   currentY += (targetY - currentY) * 0.04;
 
   button.style.transform = `translate(${currentX}px, ${currentY}px)`;
@@ -64,7 +63,7 @@ function getOffset(el) {
   const rect = el.getBoundingClientRect();
   return {
     left: rect.left + window.scrollX,
-    top: rect.top + window.scrollY
+    top: rect.top + window.scrollY,
   };
 }
 
@@ -76,8 +75,40 @@ function calculatePerspectiveFactor(x, y) {
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
 
-  const distanceFromCenter = Math.sqrt((x - screenWidth / 2) ** 2 + (y - screenHeight / 2) ** 2);
-  const perspectiveFactor = 1 - distanceFromCenter / (Math.sqrt(screenWidth ** 2 + screenHeight ** 2) / 2);
+  const distanceFromCenter = Math.sqrt(
+    (x - screenWidth / 2) ** 2 + (y - screenHeight / 2) ** 2
+  );
+  const perspectiveFactor =
+    1 -
+    distanceFromCenter / (Math.sqrt(screenWidth ** 2 + screenHeight ** 2) / 2);
 
   return perspectiveFactor;
 }
+
+function verifyLogin() {
+  const email = document.getElementById("login-email");
+  const password = document.getElementById("login-password");
+
+  if (email.value === "immember" && password.value === "confirm ho") {
+    window.location.href = "aura.html";
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Event listeners for both buttons
+button.addEventListener("click", function () {
+  verifyLogin();
+});
+
+mobileButton.addEventListener("click", function () {
+  verifyLogin();
+});
+
+// Also allow form submission on Enter key
+document.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    verifyLogin();
+  }
+});
