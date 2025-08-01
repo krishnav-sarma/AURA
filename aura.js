@@ -25,16 +25,15 @@ overlay.addEventListener("click", () => {
 
 // --------------------------------------------------------------------------------
 
-const countEl = document.getElementById("count");
-countvisits();
-
-function countvisits() {
-  fetch("https://api.countapi.xyz/update/laptop/mouse/?amount=1")
-    .then((res) => res.json())
-    .then((res) => {
-      countEl.innerHTML = res.value;
-    });
-}
+document.onkeydown = function(e) {
+  if (
+    e.key === "F12" || 
+    (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+    (e.ctrlKey && e.key === "U")
+  ) {
+    return false;
+  }
+};
 
 // --------------------------------------------------------------------------------
 
